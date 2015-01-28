@@ -55,13 +55,20 @@ public class ViewProfileActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		
+		// Take appropriate action for each action item click
+				switch (item.getItemId()) {
+				case R.id.add:
+					add();
+					return true;
+				
+				default:
+					return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
+	}
+
+	private void add() {
+		Intent i = new Intent(ViewProfileActivity.this, CreateProfileActivity.class);
+		startActivity(i);
 	}
 }

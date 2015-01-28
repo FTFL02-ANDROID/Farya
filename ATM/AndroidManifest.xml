@@ -46,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CreateProfileActivity"
+            android:name=".CreateProfileActivity"            
             android:label="@string/title_activity_create_profile" >
         </activity>
         <activity
