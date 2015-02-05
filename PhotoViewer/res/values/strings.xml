@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="load">Hello world!</string>
+    
+    <string name="btnReg">Register</string>
+    <string name="btnRet">Retrieve</string>
+    
+    <string name="btnTakePhoto">Take Photo</string>
+    
+    <string name="btnSave">Save</string>
+    <string name="editRemarks">Enter Remarks</string>
+    
+    <string name="app_name">Photo Viewer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="title_activity_reg">Photo Viewer</string>
+    <string name="title_activity_take_photo">Photo Viewer</string>
+    <string name="title_activity_view_photo">Photo Viewer</string>
+    <string name="title_activity_previer_photo">Photo Viewre</string>
+
+</resources>
