@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="latitude">Latitude : </string>
+    <string name="longitude">Longitude : </string>
+    <string name="date">Date : </string>
+    <string name="time">Time : </string>
+    <string name="meetingPlace">Meeting Place</string> 
+    <string name="distence">Distence</string>  
+    <string name="currentLocation">My current Location</string>
+    <string name="btnHome">HOME</string>       
+    
+    <string name="load">Hello world!</string>
+    <string name="btnReg">Register</string>
+    <string name="btnRet">View Places</string>
+    <string name="btnTakePhoto">Take Photo</string>
+    <string name="btnSave">Save</string>
+    <string name="editRemarks">Enter Remarks</string>
+    
+    <string name="app_name">My Meeting Places</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="title_activity_home">My Meeting Places</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_take_photo">My Meeting Places</string>
+    <string name="title_activity_view_places_list">My Meeting Places</string>
+
+</resources>
