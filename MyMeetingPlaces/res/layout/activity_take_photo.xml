@@ -1,11 +1,10 @@
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:background="@android:color/background_dark"
+	android:background="@drawable/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    tools:context="com.ftfl.photoviewer.TakePhotoActivity">
+    tools:context="com.ftfl.mymeetingplace.TakePhotoActivity">
 
     <LinearLayout 
 		  android:layout_width="match_parent"
@@ -22,18 +21,26 @@
 	         android:layout_width="wrap_content"
 	         android:layout_height="wrap_content"
 	         android:layout_margin="10dp"
-	         android:padding="10dp"
+	         android:src="@drawable/ic_launcher"
+	         android:padding="10dp"	         
 	         android:background="@drawable/pic_brdr"
 	         android:contentDescription="@string/load" />
 	    
 	    <Button
 	        android:id="@+id/btnTakePhoto"
-	        android:layout_width="match_parent"
+	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"	        
 	        android:background="@drawable/rounded_blue"        
 	        android:layout_gravity="center"
-		    android:padding="20dp"
-	        android:layout_marginTop="40dp"
+	        android:drawablePadding="10dp"
+		    android:paddingTop="20dp"
+		    android:paddingBottom="20dp"
+		    android:paddingLeft="40dp"
+		    android:paddingRight="40dp"
+		    android:drawableLeft="@drawable/camera"
+	        android:layout_marginTop="30dp"
+	        android:textSize="20sp"
+	        android:textStyle="bold"
 	        android:textColor="@android:color/primary_text_dark"  
 	        android:text="@string/btnTakePhoto" />
 	    
@@ -41,127 +48,193 @@
 	        android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="40dp"
-		    android:layout_gravity="start"
+		    android:layout_marginLeft="20dp"
+		    android:layout_gravity="start"			    
 		    android:orientation="horizontal">
-		    
-	        <TextView			               
+	    
+		    <LinearLayout 
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"		        
-		        android:textColor="@android:color/primary_text_dark"
-		        android:text="@string/latitude"
-		        android:textSize="20sp"/>
-	        
-		    <TextView	
-		        android:id="@+id/tvLatitude"        
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"	
-		        android:layout_marginLeft="10dp"	        
-		        android:textColor="@android:color/holo_blue_dark"
-		        android:text="@string/latitude"
-		        android:textSize="20sp"/>
+			    android:layout_height="wrap_content"			    
+			    android:orientation="vertical">
+			    
+		        <TextView			               
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        
+			        android:textColor="#585858"
+			        android:text="@string/latitude"
+			        android:textSize="20sp"/>
+		        
+		        <TextView			               
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        
+			        android:textColor="#585858"
+			        android:text="@string/longitude"
+			        android:textSize="20sp"/>
+		        
+		        <TextView			               
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        
+			        android:textColor="#585858"
+			        android:text="@string/date"
+			        android:textSize="20sp"/>
+		        
+		        <TextView			               
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        
+			        android:textColor="#585858"
+			        android:text="@string/time"
+			        android:textSize="20sp"/>			    
+			    
+		    </LinearLayout>
 		    
-	    </LinearLayout>
+		    <LinearLayout 
+		        android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="20dp"
+			    android:orientation="vertical">
+		        
+		        <TextView	
+			        android:id="@+id/tvLatitude"        
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"				        	        
+			        android:textColor="@android:color/holo_blue_dark"
+			        android:text="@string/latitude"
+			        android:textSize="20sp"/>
+		        
+		        <TextView	
+			        android:id="@+id/tvLongitude"        
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"				               
+			        android:textColor="@android:color/holo_blue_dark"
+			        android:text="@string/longitude"
+			        android:textSize="20sp"/>
+		        
+		        <TextView	
+			        android:id="@+id/tvDate"        
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        	        
+			        android:textColor="@android:color/holo_blue_dark"
+			        android:text="@string/date"
+			        android:textSize="20sp"/>
+		        
+		        <TextView	
+			        android:id="@+id/tvTime"         
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"			        	        
+			        android:textColor="@android:color/holo_blue_dark"
+			        android:text="@string/time"
+			        android:textSize="20sp"/>
+			    
+	        </LinearLayout>
+	    
+	    </LinearLayout>			     
 	    
 	    <LinearLayout 
 	        android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="20dp"
 		    android:layout_gravity="start"
+		    android:padding="10dp"
+		    android:background="@drawable/rounded_white"
 		    android:orientation="horizontal">
 		    
-	        <TextView			               
+	        <ImageView			               
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"		        
-		        android:textColor="@android:color/primary_text_dark"
-		        android:text="@string/longitude"
-		        android:textSize="20sp"/>
-	        
-		    <TextView	
-		        android:id="@+id/tvLongitude"        
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"	
-		        android:layout_marginLeft="10dp"	        
-		        android:textColor="@android:color/holo_blue_dark"
-		        android:text="@string/longitude"
-		        android:textSize="20sp"/>
+		        android:src="@drawable/places"
+		        android:contentDescription="@string/load"/>	        
+
+	        <EditText
+	            android:id="@+id/editRemarks"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"	           
+	            android:ems="10"
+	            android:hint="@string/editRemarks"
+	            android:inputType="textMultiLine"	           
+	            android:textColor="@android:color/black" >
+	            <requestFocus />
+            </EditText>
 		    
-	    </LinearLayout>	 
+	    </LinearLayout>	
 	    
 	    <LinearLayout 
 	        android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="20dp"
 		    android:layout_gravity="start"
+		    android:padding="5dp"
+		    android:background="@drawable/rounded_white"
 		    android:orientation="horizontal">
 		    
-	        <TextView			               
+	        <ImageView			               
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"		        
-		        android:textColor="@android:color/primary_text_dark"
-		        android:text="@string/date"
-		        android:textSize="20sp"/>
-	        
-		    <TextView	
-		        android:id="@+id/tvDate"        
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"	
-		        android:layout_marginLeft="10dp"	        
-		        android:textColor="@android:color/holo_blue_dark"
-		        android:text="@string/date"
-		        android:textSize="20sp"/>
+		        android:src="@drawable/contactname"
+		        android:contentDescription="@string/load"/>
+
+	        <EditText
+	            android:id="@+id/editContactName"	            	            
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"	           
+	            android:ems="10"
+	            android:hint="@string/editContactName"
+	            android:inputType="textPersonName"	           
+	            android:textColor="@android:color/black" />
 		    
-	    </LinearLayout>	 
+	    </LinearLayout>	
 	    
 	    <LinearLayout 
 	        android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:layout_marginTop="20dp"
+		    android:layout_marginTop="10dp"
 		    android:layout_gravity="start"
+		    android:padding="7dp"
+		    android:background="@drawable/rounded_white"
 		    android:orientation="horizontal">
 		    
-	        <TextView			               
+	        <ImageView			               
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"		        
-		        android:textColor="@android:color/primary_text_dark"
-		        android:text="@string/time"
-		        android:textSize="20sp"/>
-	        
-		    <TextView	
-		        android:id="@+id/tvTime"         
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"	
-		        android:layout_marginLeft="10dp"	        
-		        android:textColor="@android:color/holo_blue_dark"
-		        android:text="@string/time"
-		        android:textSize="20sp"/>
+		        android:src="@drawable/mail"
+		        android:contentDescription="@string/load"/>
+
+	        <EditText
+	            android:id="@+id/editContactEmail"	            	            
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"	           
+	            android:ems="10"
+	            android:hint="@string/editContactEmail"
+	            android:inputType="textEmailAddress"	           
+	            android:textColor="@android:color/black" />
 		    
-	    </LinearLayout>	 
+	    </LinearLayout>	
 	    
-	    
-	    <TextView	             
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginTop="40dp"	        
-	        android:layout_gravity="start"
-	        android:text="@string/meetingPlace"
-	        android:textColor="@android:color/primary_text_dark"
-	        android:textSize="20sp"/>
-	    
-	    <EditText
-	        android:id="@+id/editRemarks"
+	    <LinearLayout 
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:padding="10dp"	
-	        android:layout_gravity="center"
-	        android:layout_marginTop="10dp"	       
-	        android:background="@drawable/rounded_blue"     
-	        android:ems="10"
-	        android:textColor="@android:color/black" 
-	        android:hint="@string/editRemarks"
-	        android:inputType="textMultiLine" >
-	        <requestFocus />
-	    </EditText>
-	    
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:layout_gravity="start"
+		    android:padding="7dp"
+		    android:background="@drawable/rounded_white"
+		    android:orientation="horizontal">
+		    
+	        <ImageView			               
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"		        
+		        android:src="@drawable/phone"
+		        android:contentDescription="@string/load"/>
+
+	        <EditText
+	            android:id="@+id/editContactMobile"	            	            
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"	           
+	            android:ems="10"
+	            android:hint="@string/editContactMobile"
+	            android:inputType="textEmailAddress"	           
+	            android:textColor="@android:color/black" />
+		    
+	    </LinearLayout>	
+	    	    
 	    <Button
 	        android:id="@+id/btnSave"
 	        android:layout_width="wrap_content"
@@ -169,16 +242,18 @@
 	        android:background="@drawable/rounded_blue"  
 	        android:drawableLeft="@drawable/save"      
 	        android:layout_gravity="center"
+	        android:drawablePadding="10dp"
+	        android:textStyle="bold"
 	        android:layout_marginTop="60dp"
 		    android:paddingTop="20dp"
 		    android:paddingBottom="20dp"
 		    android:paddingLeft="40dp"
 		    android:paddingRight="40dp"
 	        android:textColor="@android:color/primary_text_dark" 
-	        android:text="@string/btnSave" />
-	
+	        android:text="@string/btnSave" />	
 
     </LinearLayout>
+    
 </ScrollView>
 
     

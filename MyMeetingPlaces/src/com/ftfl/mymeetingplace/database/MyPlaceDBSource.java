@@ -17,6 +17,8 @@ public class MyPlaceDBSource {
 	private SQLiteDatabase mDB;
 	private MyPlaceDBHelper mHelper;
 	
+	int countResult;
+	
 	public MyPlaceDBSource(Context context) {
 		mHelper = new MyPlaceDBHelper(context);
 	}
@@ -46,6 +48,9 @@ public class MyPlaceDBSource {
 		values.put(MyPlaceDBHelper.COL_PLACE_DATE, ePlace.getmDate());		
 		values.put(MyPlaceDBHelper.COL_PLACE_TIME, ePlace.getmTime());
 		values.put(MyPlaceDBHelper.COL_PLACE_REMARKS, ePlace.getmRemark());
+		values.put(MyPlaceDBHelper.COL_PLACE_CONTACT_PERSON, ePlace.getmContactName());
+		values.put(MyPlaceDBHelper.COL_PLACE_CONTACT_EMAIL, ePlace.getmContactEmail());
+		values.put(MyPlaceDBHelper.COL_PLACE_CONTACT_MOBILE, ePlace.getmContaceMobile());
 	
 		Long inserted = mDB.insert(MyPlaceDBHelper.PLACES_TABLE_NAME, null, values);
 		close();
@@ -93,6 +98,9 @@ public class MyPlaceDBSource {
 		values.put(MyPlaceDBHelper.COL_PLACE_DATE, ePlace.getmDate());		
 		values.put(MyPlaceDBHelper.COL_PLACE_TIME, ePlace.getmTime());
 		values.put(MyPlaceDBHelper.COL_PLACE_REMARKS, ePlace.getmRemark());
+		values.put(MyPlaceDBHelper.COL_PLACE_CONTACT_PERSON, ePlace.getmContactName());
+		values.put(MyPlaceDBHelper.COL_PLACE_CONTACT_EMAIL, ePlace.getmContactEmail());
+		values.put(MyPlaceDBHelper.COL_PLACE_CONTACT_MOBILE, ePlace.getmContaceMobile());
 
 		long updated = 0;
 		try {
@@ -104,8 +112,25 @@ public class MyPlaceDBSource {
 		return updated;
 	}
 	
+	public int countProfile(){
+		
+		
+		String selectQuery = "SELECT  * FROM " + MyPlaceDBHelper.PLACES_TABLE_NAME;
+
+		Cursor mCursor = mDB.rawQuery(selectQuery, null);	
+		
+		if(mCursor.moveToFirst()){			
+			countResult = mCursor.getInt(0);
+		}else {
+		countResult=0; 
+		
+		}		
+		return countResult;
+	  }
+	
 	// Getting All place list
 	public ArrayList<MyPlaceModel> getPlaceList() {
+		
 		ArrayList<MyPlaceModel> mPhotoList = new ArrayList<MyPlaceModel>();
 		try {
 			open();
@@ -114,8 +139,7 @@ public class MyPlaceDBSource {
 			e.printStackTrace();
 		}
 		
-		Cursor mCursor = mDB.query(MyPlaceDBHelper.PLACES_TABLE_NAME, null, null, null, null,
-				null, null);
+		Cursor mCursor = mDB.query(MyPlaceDBHelper.PLACES_TABLE_NAME, null, null, null, null, null, null);
 	
 		// looping through all rows and adding to list
 		if (mCursor != null && mCursor.getCount() > 0) {
@@ -129,9 +153,12 @@ public class MyPlaceDBSource {
 				String mRemarks = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_REMARKS));
 				String mDate = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_DATE));
 				String mTime = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_TIME));
-				String mImage = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_IMAGE));								
+				String mImage = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_IMAGE));
+				String mContactName = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_CONTACT_PERSON));
+				String mContactEmail = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_CONTACT_EMAIL));
+				String mContaceMobile = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_CONTACT_MOBILE));
 	
-				MyPlaceModel mPlace = new MyPlaceModel(mID, mLatitude, mLongitude,mRemarks, mDate, mTime, mImage);
+				MyPlaceModel mPlace = new MyPlaceModel(mID, mLatitude, mLongitude,mRemarks, mDate, mTime, mImage, mContactName, mContactEmail, mContaceMobile);
 				
 				mPhotoList.add(mPlace);
 				mCursor.moveToNext();
@@ -143,5 +170,67 @@ public class MyPlaceDBSource {
 		// return place list
 		return mPhotoList;
 	}
+	
+	// Getting All place detail
+		public MyPlaceModel getDetail(int id) {
+			
+			try {
+				open();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
+			String selectQuery = "SELECT  * FROM " + MyPlaceDBHelper.PLACES_TABLE_NAME+ " WHERE " + MyPlaceDBHelper.COL_PLACES_ID + "=" + id;
+
+			Cursor mCursor = mDB.rawQuery(selectQuery, null);
+			
+			mCursor.moveToFirst();
+			
+			int mID = mCursor.getInt(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACES_ID));
+			String mLatitude = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_LATITUDE));
+			String mLongitude = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_LONGTITUDE));
+			String mRemarks = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_REMARKS));
+			String mDate = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_DATE));
+			String mTime = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_TIME));
+			String mImage = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_IMAGE));
+			String mContactName = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_CONTACT_PERSON));
+			String mContactEmail = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_CONTACT_EMAIL));
+			String mContaceMobile = mCursor.getString(mCursor.getColumnIndex(MyPlaceDBHelper.COL_PLACE_CONTACT_MOBILE));
+
+			MyPlaceModel mPlaceDetail = new MyPlaceModel(mID, mLatitude, mLongitude,mRemarks, mDate, mTime, mImage, mContactName, mContactEmail, mContaceMobile);
+			
+
+			mCursor.moveToNext();
+
+			mCursor.close();
+			mDB.close();
+
+			// return place detail
+			return mPlaceDetail;
+		}
+		
+		public boolean isEmpty() {
+			try {
+				this.open();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Cursor cursor = mDB.query(MyPlaceDBHelper.PLACES_TABLE_NAME, new String[] {
+					MyPlaceDBHelper.COL_PLACES_ID, MyPlaceDBHelper.COL_PLACE_LATITUDE, MyPlaceDBHelper.COL_PLACE_LONGTITUDE,
+					MyPlaceDBHelper.COL_PLACE_REMARKS, MyPlaceDBHelper.COL_PLACE_DATE,
+					MyPlaceDBHelper.COL_PLACE_TIME, MyPlaceDBHelper.COL_PLACE_IMAGE,
+					MyPlaceDBHelper.COL_PLACE_CONTACT_PERSON, MyPlaceDBHelper.COL_PLACE_CONTACT_EMAIL,
+					MyPlaceDBHelper.COL_PLACE_CONTACT_MOBILE, }, null, null, null,
+					null, null);
+
+			if (cursor.getCount() == 0) {
+				this.close();
+				return true;
+			} else {
+				this.close();
+				return false;
+			}
+		}
 }

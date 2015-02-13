@@ -23,6 +23,9 @@ public class MyPlaceDBHelper extends SQLiteOpenHelper{
 	public static final String COL_PLACE_DATE = "date";
 	public static final String COL_PLACE_TIME = "time";
 	public static final String COL_PLACE_REMARKS = "remarks";
+	public static final String COL_PLACE_CONTACT_PERSON = "person";
+	public static final String COL_PLACE_CONTACT_EMAIL = "email";
+	public static final String COL_PLACE_CONTACT_MOBILE = "mobile";
 	
 	// table information
 	private static final String DATABASE_PLACE_TABLE = "create table "+ PLACES_TABLE_NAME + 
@@ -31,8 +34,11 @@ public class MyPlaceDBHelper extends SQLiteOpenHelper{
 			+ COL_PLACE_LATITUDE + " text not null," + " "
 			+ COL_PLACE_LONGTITUDE + " text not null," + " "
 			+ COL_PLACE_DATE + " text not null," + " "
-			+ COL_PLACE_TIME + " text not null," + " "			
-			+ COL_PLACE_REMARKS + " text not null);";
+			+ COL_PLACE_TIME + " text not null," + " "
+			+ COL_PLACE_REMARKS + " text not null," + " "
+			+ COL_PLACE_CONTACT_PERSON + " text not null," + " "
+			+ COL_PLACE_CONTACT_EMAIL + " text not null," + " "
+			+ COL_PLACE_CONTACT_MOBILE + " text not null);";
 	
 	public MyPlaceDBHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

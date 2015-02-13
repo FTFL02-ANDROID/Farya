@@ -8,12 +8,17 @@ import com.ftfl.mymeetingplace.uitl.MyPlaceModel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,24 +27,28 @@ import android.widget.Toast;
 public class ViewPlacesListActivity extends Activity implements LocationListener{
 	
 	//initialization variable
-	ListView mListView = null;
-	List<MyPlaceModel> allPlace = null;
-	MyPlaceModel mPlaceModel = null;
-	MyPlaceDBSource mDBSource = null;
-	MyPlaceAdapter arrayAdapter = null;
+	private ListView mListView = null;
+	private List<MyPlaceModel> allPlace = null;
+	
+	private MyPlaceDBSource mDBSource = null;
+	private MyPlaceAdapter arrayAdapter = null;
 	
 	private Button mBtnHome = null;
 	
 	private TextView mCurrentLatitude = null;
-	private TextView mCurrentLongitude = null;	
+	private TextView mCurrentLongitude = null;
+	private TextView mCount = null;
 	
 	private static String eCurrentLatitude = "";
 	private static String eCurrentLongitude = "";
 	
 	public static String mDistance = "";
+	private String mCountList = "";
 	
 	private double currentLatitude = 0.0;
 	private double currentLongitude = 0.0;
+	
+	private int selectedId = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +65,11 @@ public class ViewPlacesListActivity extends Activity implements LocationListener
 		mCurrentLongitude = (TextView) findViewById(R.id.tvCurrentLongitudeView);
 		mCurrentLongitude.setText(eCurrentLongitude);
 		
+		mCount = (TextView) findViewById(R.id.tvCount);
+		int count = mDBSource.countProfile();
+		mCountList = String.valueOf(count);
+		mCount.setText(mCountList);
+		
 		mDBSource = new MyPlaceDBSource(this);		
 		allPlace = mDBSource.getPlaceList();			
 		
@@ -66,13 +80,83 @@ public class ViewPlacesListActivity extends Activity implements LocationListener
 		mListView = (ListView) findViewById(R.id.lv);
 		mListView.setAdapter(arrayAdapter);
 		
+		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+						
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+
+				AlertDialog.Builder alertDialog = new AlertDialog.Builder(ViewPlacesListActivity.this);
+				// Setting Dialog Title
+				final String[] menuList = { "View Profile", "Delete Profile"};
+				
+				alertDialog.setTitle("Options");
+				alertDialog.setIcon(R.drawable.ic_launcher);
+				
+				selectedId = allPlace.get(position).getmID();
+				
+				alertDialog.setItems(menuList, new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog,	int item) {
+						
+						switch (item) {
+						case 0:
+
+								Intent intent = new Intent(	ViewPlacesListActivity.this, SingleProfileActivity.class);							
+								intent.putExtra("selected_id",selectedId);
+								startActivity(intent);
+							
+							break;
+						case 1:
+							
+							Toast.makeText(getApplicationContext(),String.valueOf(selectedId),Toast.LENGTH_SHORT).show();
+
+							AlertDialog.Builder alertDialog = new AlertDialog.Builder(ViewPlacesListActivity.this);
+
+							// Setting Dialog Title
+							alertDialog.setTitle("Do You Want to delete");
+
+							// Setting Dialog Message
+							alertDialog.setMessage("Are you sure you want delete this?");
+
+							// Setting Icon to Dialog
+							alertDialog.setIcon(R.drawable.ic_launcher);
+
+							// Setting Positive "Yes" Button
+							alertDialog.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,	int which) {
+									
+									mDBSource.deleteData(selectedId);
+									finish();
+									startActivity(getIntent());
+								}
+							});
+							// Showing Alert Message
+							// Setting Negative "NO" Button
+							alertDialog.setNegativeButton("No",	new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,	int which) {
+									Toast.makeText(	getApplicationContext(),"You clicked on No",Toast.LENGTH_SHORT).show();
+									dialog.cancel();
+								}
+
+							});
+							alertDialog.show();
+							break;
+						}
+					}
+				});
+				
+				AlertDialog menuDrop = alertDialog.create();
+				menuDrop.show();
+			}
+		});
+		
 		mBtnHome = (Button) findViewById(R.id.btnHome);
 		//event listener for on click metnod
 		mBtnHome.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent mIntentOne = new Intent(ViewPlacesListActivity.this, HomeActivity.class);
+				Intent mIntentOne = new Intent(ViewPlacesListActivity.this, SingleProfileActivity.class);
 				startActivity(mIntentOne);
 				
 			}			
@@ -141,6 +225,33 @@ public class ViewPlacesListActivity extends Activity implements LocationListener
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.view_places_list, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		// Take appropriate action for each action item click
+				switch (item.getItemId()) {
+				case R.id.add:
+					add();
+					return true;
+				
+				default:
+					return super.onOptionsItemSelected(item);
+		}
+	}
+
+	private void add() {
+		Intent i = new Intent(ViewPlacesListActivity.this, TakePhotoActivity.class);
+		startActivity(i);
 		
 	}
 }

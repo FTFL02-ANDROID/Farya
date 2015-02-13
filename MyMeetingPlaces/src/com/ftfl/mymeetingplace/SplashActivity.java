@@ -23,7 +23,7 @@ public class SplashActivity extends Activity {
 						
 						// Bellow code will do the same thing....						
 						
-						Intent mIntent = new Intent(SplashActivity.this, HomeActivity.class);
+						Intent mIntent = new Intent(SplashActivity.this, SingleProfileActivity.class);
 						startActivity(mIntent);						
 					
 						// Remove activity

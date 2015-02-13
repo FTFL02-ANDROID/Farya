@@ -9,12 +9,16 @@ public class MyPlaceModel {
 	String mDate = "";
 	String mTime = "";
 	String mImage = "";
+	String mContactName = "";
+	String mContactEmail = "";
+	String mContaceMobile = "";
 	public MyPlaceModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public MyPlaceModel(Integer mID, String mLatitude, String mLongitude,
-			String mRemark, String mDate, String mTime, String mImage) {
+			String mRemark, String mDate, String mTime, String mImage,
+			String mContactName, String mContactEmail, String mContaceMobile) {
 		super();
 		this.mID = mID;
 		this.mLatitude = mLatitude;
@@ -23,9 +27,13 @@ public class MyPlaceModel {
 		this.mDate = mDate;
 		this.mTime = mTime;
 		this.mImage = mImage;
+		this.mContactName = mContactName;
+		this.mContactEmail = mContactEmail;
+		this.mContaceMobile = mContaceMobile;
 	}
 	public MyPlaceModel(String mLatitude, String mLongitude, String mRemark,
-			String mDate, String mTime, String mImage) {
+			String mDate, String mTime, String mImage, String mContactName,
+			String mContactEmail, String mContaceMobile) {
 		super();
 		this.mLatitude = mLatitude;
 		this.mLongitude = mLongitude;
@@ -33,6 +41,9 @@ public class MyPlaceModel {
 		this.mDate = mDate;
 		this.mTime = mTime;
 		this.mImage = mImage;
+		this.mContactName = mContactName;
+		this.mContactEmail = mContactEmail;
+		this.mContaceMobile = mContaceMobile;
 	}
 	public Integer getmID() {
 		return mID;
@@ -75,6 +86,24 @@ public class MyPlaceModel {
 	}
 	public void setmImage(String mImage) {
 		this.mImage = mImage;
+	}
+	public String getmContactName() {
+		return mContactName;
+	}
+	public void setmContactName(String mContactName) {
+		this.mContactName = mContactName;
+	}
+	public String getmContactEmail() {
+		return mContactEmail;
+	}
+	public void setmContactEmail(String mContactEmail) {
+		this.mContactEmail = mContactEmail;
+	}
+	public String getmContaceMobile() {
+		return mContaceMobile;
+	}
+	public void setmContaceMobile(String mContaceMobile) {
+		this.mContaceMobile = mContaceMobile;
 	}
 	
 }

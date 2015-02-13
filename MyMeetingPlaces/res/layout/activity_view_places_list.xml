@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"    
-    android:background="@android:color/background_dark"
+    android:background="@drawable/back"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -19,32 +19,91 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"	        	       
 	        android:text="@string/currentLocation"
-	        android:textColor="@android:color/primary_text_dark"
-	        android:textSize="24sp" />	    
-	
-	    <LinearLayout
+	        android:gravity="bottom"
+	        android:drawableLeft="@drawable/location"
+	        android:textColor="#585858"
+	        android:textSize="20sp" />	
+	        
+	    <LinearLayout 
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="10dp"
-	        android:orientation="horizontal" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="20dp"
+		    android:layout_gravity="start"			    
+		    android:orientation="horizontal">
 	
-	        <TextView
-	            android:id="@+id/tvCurrentLatitudeView"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"	            
-	            android:text="@string/latitude"
-	            android:textColor="@android:color/holo_blue_dark"
-	            android:textSize="20sp" />
-	
-	        <TextView
-	            android:id="@+id/tvCurrentLongitudeView"
+		    <LinearLayout
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="40dp"
+		        android:orientation="vertical" >
+		        
+		        <TextView			               
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        
+			        android:textColor="@android:color/black"
+			        android:text="@string/latitude"
+			        android:textSize="16sp"/>
+		        
+		        <TextView			               
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"		        
+			        android:textColor="@android:color/black"
+			        android:text="@string/longitude"
+			        android:textSize="16sp"/>
+		        
+	        </LinearLayout>
+	        
+	        <LinearLayout
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="10dp"
+		        android:orientation="vertical" >
+		
+		        <TextView
+		            android:id="@+id/tvCurrentLatitudeView"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"	            
+		            android:text="@string/latitude"
+		            android:textColor="@android:color/black"
+		            android:textSize="16sp" />
+		
+		        <TextView
+		            android:id="@+id/tvCurrentLongitudeView"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"	            
+		            android:text="@string/longitude"
+		            android:textColor="@android:color/black"
+		            android:textSize="16sp" />
+		        
+		    </LinearLayout>
+	    
+        </LinearLayout>
+        
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="20dp"
+		    android:layout_gravity="start"			    
+		    android:orientation="horizontal">
+        
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"	        	       
+		        android:text="@string/count"
+		        android:gravity="bottom"
+		        android:drawableLeft="@drawable/count"
+		        android:textColor="#585858"
+		        android:textSize="20sp" />
+		    
+		    <TextView
+	            android:id="@+id/tvCount"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_marginLeft="10dp"
-	            android:text="@string/longitude"
-	            android:textColor="@android:color/holo_blue_dark"
+	            android:layout_marginLeft="10dp"	            
+	            android:text="@string/count"
+	            android:textColor="@android:color/black"
 	            android:textSize="20sp" />
-	        
+	    
 	    </LinearLayout>
 	    
     </LinearLayout>
@@ -60,8 +119,8 @@
 	    <ListView
 	        android:id="@+id/lv"
 	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"	        
-	        android:background="#20DCDCDC" />
+	        android:layout_height="wrap_content"	        	        
+	        android:background="#207AE3F7" />
 	    
     </LinearLayout>
     
@@ -70,7 +129,7 @@
     <LinearLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"        
+        android:layout_gravity="bottom"             
         android:gravity="center"           
         android:orientation="vertical" >    
 
@@ -79,11 +138,14 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/rounded_blue"
-	        android:drawableLeft="@drawable/home"	        
+	        android:drawableLeft="@drawable/home"
+	        android:drawablePadding="10dp"	        
 	        android:paddingTop="20dp"
 		    android:paddingBottom="20dp"
 		    android:paddingLeft="40dp"
-		    android:paddingRight="40dp"
+		    android:paddingRight="40dp"		    
+		    android:textSize="20sp"
+	        android:textStyle="bold"
 	        android:text="@string/btnHome"
 	        android:textColor="@android:color/primary_text_dark" />
     

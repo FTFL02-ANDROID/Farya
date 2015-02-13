@@ -52,11 +52,18 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 	private TextView mViewLongitude = null;
 	private TextView mViewDate = null;
 	private TextView mViewTime = null;
-	private EditText mViewPlaces = null;		
+	
+	private EditText mViewPlaces = null;
+	private EditText mViewContactPerson = null;
+	private EditText mViewContactEmail = null;
+	private EditText mViewContactMobile = null;
 	
 	private String mLatitude = "";
 	private String mLongitude = "";
 	private String mMeetingPlaces = "";
+	private String mContactPerson = "";
+	private String mContactEmail = "";
+	private String mContactMobile = "";
 	
 	private String eLatitude = "";
 	private String eLongitude = "";
@@ -72,9 +79,9 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 	
 	private static String mPlacePhotoPath = "";
 	
-	Toast toast = null;
+	private Toast toast = null;
 	
-	MyPlaceDBSource mDBSource = new MyPlaceDBSource(this);
+	private MyPlaceDBSource mDBSource = new MyPlaceDBSource(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +108,11 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 		mViewTime = (TextView) findViewById(R.id.tvTime);
 		mViewTime.setText(eTime);
 		
-		mViewPlaces = (EditText) findViewById(R.id.editRemarks);		
+		mViewPlaces = (EditText) findViewById(R.id.editRemarks);
+		
+		mViewContactPerson = (EditText) findViewById(R.id.editContactName);		
+		mViewContactEmail = (EditText) findViewById(R.id.editContactEmail);		
+		mViewContactMobile = (EditText) findViewById(R.id.editContactMobile);
 		
 		mImageView = (ImageView) findViewById(R.id.imgView);
 		
@@ -136,7 +147,9 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 				//condition to check validity
 				if (   ( !mLatitude.equals("")) && ( !mLongitude.equals("")) &&
 						( !mMeetingPlaces.equals("")) && ( !mPlacePhotoPath.equals("")) 
-						&& ( !mDate.equals("")) && ( !mTime.equals("")) ){ 					
+						&& ( !mDate.equals("")) && ( !mTime.equals(""))
+						&& ( !mContactPerson.equals("")) && ( !mContactEmail.equals("")) 
+						&& ( !mContactMobile.equals(""))){ 					
 					
 					// Assign values in the Profile
 					MyPlaceModel mDataInsert = new MyPlaceModel();
@@ -147,13 +160,16 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 					mDataInsert.setmRemark(mMeetingPlaces);
 					mDataInsert.setmDate(mDate);
 					mDataInsert.setmTime(mTime);
+					mDataInsert.setmTime(mContactPerson);
+					mDataInsert.setmTime(mContactEmail);
+					mDataInsert.setmTime(mContactMobile);
 					
 					if (mDBSource.insertData(mDataInsert) == true) {
 						
 						toast = Toast.makeText(TakePhotoActivity.this, "Successfully Saved.", Toast.LENGTH_LONG);
 						toast.show();
 						//communicate from take photo activeity to home activity
-						startActivity(new Intent(TakePhotoActivity.this, HomeActivity.class));
+						startActivity(new Intent(TakePhotoActivity.this, SingleProfileActivity.class));
 						
 					} else {
 						
@@ -202,6 +218,9 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 		mLatitude = mViewLatitude.getText().toString();
 		mLongitude = mViewLongitude.getText().toString();
 		mMeetingPlaces = mViewPlaces.getText().toString();
+		mContactPerson = mViewContactPerson.getText().toString();
+		mContactEmail = mViewContactEmail.getText().toString();
+		mContactMobile = mViewContactMobile.getText().toString();
 		
 	}
 	
