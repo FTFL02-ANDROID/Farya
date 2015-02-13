@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import com.ftfl.mymeetingplace.database.MyPlaceDBSource;
 import com.ftfl.mymeetingplace.uitl.MyPlaceModel;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;

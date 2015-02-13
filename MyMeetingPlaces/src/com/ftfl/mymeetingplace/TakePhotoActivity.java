@@ -169,7 +169,7 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 						toast = Toast.makeText(TakePhotoActivity.this, "Successfully Saved.", Toast.LENGTH_LONG);
 						toast.show();
 						//communicate from take photo activeity to home activity
-						startActivity(new Intent(TakePhotoActivity.this, SingleProfileActivity.class));
+						startActivity(new Intent(TakePhotoActivity.this, ViewPlacesListActivity.class));
 						
 					} else {
 						
