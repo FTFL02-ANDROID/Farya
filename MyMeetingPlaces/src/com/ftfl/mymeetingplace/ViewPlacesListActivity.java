@@ -27,23 +27,24 @@ import android.widget.Toast;
 public class ViewPlacesListActivity extends Activity implements LocationListener{
 	
 	//initialization variable
-	private ListView mListView = null;
-	private List<MyPlaceModel> allPlace = null;
+	ListView mListView;
+	List<MyPlaceModel> allPlace;
+	MyPlaceDBSource mDBSource;
+	MyPlaceAdapter arrayAdapter;	
 	
-	private MyPlaceDBSource mDBSource = null;
-	private MyPlaceAdapter arrayAdapter = null;
+	MyPlaceModel mplace;
 	
 	private Button mBtnHome = null;
 	
 	private TextView mCurrentLatitude = null;
 	private TextView mCurrentLongitude = null;
-	private TextView mCount = null;
+	
 	
 	private static String eCurrentLatitude = "";
 	private static String eCurrentLongitude = "";
 	
 	public static String mDistance = "";
-	private String mCountList = "";
+	
 	
 	private double currentLatitude = 0.0;
 	private double currentLongitude = 0.0;
@@ -55,6 +56,8 @@ public class ViewPlacesListActivity extends Activity implements LocationListener
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_places_list);
 		
+		mplace = new MyPlaceModel();
+		
 		//Location method call for get latitude longitude
 		getLocationData();
 		
@@ -65,13 +68,12 @@ public class ViewPlacesListActivity extends Activity implements LocationListener
 		mCurrentLongitude = (TextView) findViewById(R.id.tvCurrentLongitudeView);
 		mCurrentLongitude.setText(eCurrentLongitude);
 		
-		mCount = (TextView) findViewById(R.id.tvCount);
-		int count = mDBSource.countProfile();
-		mCountList = String.valueOf(count);
-		mCount.setText(mCountList);
+		
 		
 		mDBSource = new MyPlaceDBSource(this);		
-		allPlace = mDBSource.getPlaceList();			
+		allPlace = mDBSource.getPlaceList();
+		
+		
 		
 		//object of MyPlace adapter
 		arrayAdapter = new MyPlaceAdapter(this, allPlace, currentLatitude, currentLongitude);		

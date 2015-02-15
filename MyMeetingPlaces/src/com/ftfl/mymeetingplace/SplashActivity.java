@@ -1,16 +1,22 @@
 package com.ftfl.mymeetingplace;
 
 
+import com.ftfl.mymeetingplace.database.MyPlaceDBSource;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 public class SplashActivity extends Activity {
+	
+	MyPlaceDBSource mDataSource = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
+		
+		mDataSource = new MyPlaceDBSource(this);
 		
 		Thread mThread = new Thread() {
 			public void run() {
@@ -23,9 +29,16 @@ public class SplashActivity extends Activity {
 						
 						// Bellow code will do the same thing....						
 						
-						Intent mIntent = new Intent(SplashActivity.this, ViewPlacesListActivity.class);
-						startActivity(mIntent);						
-					
+						if(mDataSource.isEmpty())
+						{
+							Intent i = new Intent(SplashActivity.this,	TakePhotoActivity.class);
+							startActivity(i);
+						}
+						else{
+							Intent i = new Intent(SplashActivity.this,	ViewPlacesListActivity.class);
+							startActivity(i);
+						}
+												
 						// Remove activity
 						finish(); // so that, it will not get back in the previous
 									// file.

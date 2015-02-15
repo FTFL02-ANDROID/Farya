@@ -230,7 +230,7 @@
 	            android:layout_height="wrap_content"	           
 	            android:ems="10"
 	            android:hint="@string/editContactMobile"
-	            android:inputType="textEmailAddress"	           
+	            android:inputType="phone"	           
 	            android:textColor="@android:color/black" />
 		    
 	    </LinearLayout>	

@@ -11,7 +11,7 @@ public class MyPlaceDBHelper extends SQLiteOpenHelper{
 	private static final String DATABASE_NAME = "place.db";
 	// All Static variables
 	// Database Version
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 	//table name
 	public static final String PLACES_TABLE_NAME = "place_table";
 	

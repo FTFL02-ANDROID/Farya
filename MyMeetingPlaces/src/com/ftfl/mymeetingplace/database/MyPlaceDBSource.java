@@ -111,22 +111,7 @@ public class MyPlaceDBSource {
 		close();
 		return updated;
 	}
-	
-	public int countProfile(){
 		
-		
-		String selectQuery = "SELECT  * FROM " + MyPlaceDBHelper.PLACES_TABLE_NAME;
-
-		Cursor mCursor = mDB.rawQuery(selectQuery, null);	
-		
-		if(mCursor.moveToFirst()){			
-			countResult = mCursor.getInt(0);
-		}else {
-		countResult=0; 
-		
-		}		
-		return countResult;
-	  }
 	
 	// Getting All place list
 	public ArrayList<MyPlaceModel> getPlaceList() {

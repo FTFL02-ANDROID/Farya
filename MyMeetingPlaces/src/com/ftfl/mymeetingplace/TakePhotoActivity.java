@@ -79,9 +79,9 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 	
 	private static String mPlacePhotoPath = "";
 	
-	private Toast toast = null;
+	Toast toast;
 	
-	private MyPlaceDBSource mDBSource = new MyPlaceDBSource(this);
+	MyPlaceDBSource mDBSource = new MyPlaceDBSource(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -160,9 +160,9 @@ public class TakePhotoActivity extends Activity implements LocationListener {
 					mDataInsert.setmRemark(mMeetingPlaces);
 					mDataInsert.setmDate(mDate);
 					mDataInsert.setmTime(mTime);
-					mDataInsert.setmTime(mContactPerson);
-					mDataInsert.setmTime(mContactEmail);
-					mDataInsert.setmTime(mContactMobile);
+					mDataInsert.setmContactName(mContactPerson);
+					mDataInsert.setmContactEmail(mContactEmail);
+					mDataInsert.setmContaceMobile(mContactMobile);
 					
 					if (mDBSource.insertData(mDataInsert) == true) {
 						
