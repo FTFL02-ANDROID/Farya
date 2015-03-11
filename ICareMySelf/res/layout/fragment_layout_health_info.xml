@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="center"
+    android:orientation="vertical"> 
+ 
+    <ImageView        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/load"
+        android:layout_marginBottom="10dp"                     
+        android:src="@drawable/pinfo"/> 
+        
+    <Button
+        android:id="@+id/lvHealthInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"         
+        android:drawablePadding="120dp"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark" 
+        android:text="@string/generalinfo"         	        	        
+        android:background="#5029088A" />
+    
+    <Button
+        android:id="@+id/lvVaccinationInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"          
+        android:drawablePadding="85dp"
+        android:text="@string/vaccinationinfo"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark" 	        	        
+        android:background="#5029088A" />
+        
+    <Button
+        android:id="@+id/lvGrowthInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"        
+        android:drawablePadding="123dp"
+        android:text="@string/growthinfo"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark"	        	        
+        android:background="#5029088A" />
+            
+    <Button
+        android:id="@+id/lvDietNutritionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"        
+        android:drawablePadding="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/dietnutritioninfo"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark" 	        	        
+        android:background="#5029088A" />
+
+    
+ 
+</LinearLayout>

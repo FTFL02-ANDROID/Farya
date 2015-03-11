@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"> 
+    
+	<LinearLayout 
+	
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    android:gravity="center"
+	    android:orientation="vertical" >
+    
+	    <ImageView	         
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:layout_margin="10dp"
+	         android:src="@drawable/viewvaccine"
+	         android:padding="10dp"	                 
+	         android:contentDescription="@string/load" />  
+	         
+	   <TextView
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"	        	       
+	       android:text="@string/dateOfVaccine"	       
+	       android:textColor="#585858"
+	       android:padding="5dp"
+	       android:drawablePadding="3dp"
+	       android:layout_gravity="left"
+	       android:gravity="bottom"
+	       android:drawableLeft="@drawable/date"
+	       android:layout_marginTop="10dp"
+	       android:layout_marginRight="5dp"
+	       android:textSize="20sp" />
+
+	    <EditText
+          android:id="@+id/editDateOfVaccine"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"	           
+          android:ems="10"
+          android:padding="10dp"
+          android:layout_gravity="center"
+          android:background="@drawable/rounded_white"	
+          android:hint="@string/hintDate"
+          android:inputType="date"                                 
+          android:textColor="@android:color/black" />
+	         
+	   <TextView
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"	        	       
+	       android:text="@string/vaccineName"	       
+	       android:textColor="#585858"
+	       android:padding="5dp"
+	       android:drawablePadding="3dp"
+	       android:drawableLeft="@drawable/vaccinename"
+	       android:layout_gravity="left"
+	       android:gravity="bottom"
+	       android:layout_marginTop="10dp"
+	       android:layout_marginRight="5dp"
+	       android:textSize="20sp" />            
+
+      <EditText
+          android:id="@+id/editVaccineName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"	           
+          android:ems="10"
+          android:padding="10dp"
+          android:layout_gravity="center"
+          android:background="@drawable/rounded_white"	            
+          android:inputType="textMultiLine"	 	
+          android:hint="@string/hintNote"                    
+          android:textColor="@android:color/black" />
+      
+      <CheckBox
+	        android:id="@+id/editVaccineTaken"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"	       
+	        android:gravity="center"
+	        android:layout_gravity="right"
+	        android:textSize="20sp"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginRight="5dp"
+	        android:textColor="#585858"
+	        android:text="@string/vaccine" />
+
+    	<Button
+	        android:id="@+id/btnSaveVaccin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"        
+	        android:background="@drawable/rounded_blue"  
+	        android:drawableLeft="@drawable/save"      
+	        android:layout_gravity="center"
+	        android:drawablePadding="5dp"
+	        android:textStyle="bold"
+	        android:layout_marginTop="60dp"
+		    android:paddingTop="20dp"
+		    android:paddingBottom="20dp"
+		    android:paddingLeft="40dp"
+		    android:paddingRight="40dp"	   
+	        android:textColor="@android:color/primary_text_dark" 
+	        android:text="@string/btnSave" />   
+
+	</LinearLayout>
+
+</ScrollView>
+

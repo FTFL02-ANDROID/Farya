@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="center"
+    android:orientation="vertical"> 
+ 
+    <ImageView        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/load"
+        android:src="@drawable/phospital"/>  
+        
+    <Button
+        android:id="@+id/btnDhakaMedicalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"         
+        android:drawablePadding="105dp"
+        android:drawableRight="@drawable/next"
+        android:textSize="20sp"
+        android:textColor="@android:color/primary_text_dark" 
+        android:text="@string/btnDhakaMedicalInfo"         	        	        
+        android:background="#60B40404" />
+    
+    <Button
+        android:id="@+id/btnGovtHomiopathyMedicalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"          
+        android:drawablePadding="7dp"
+        android:textSize="20sp"
+        android:text="@string/btnGovtHomiopathyMedicalInfo"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark" 	        	        
+        android:background="#60B40404" />
+        
+    <Button
+        android:id="@+id/btnDhakaDentalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"        
+        android:drawablePadding="118dp"
+        android:textSize="20sp"
+        android:text="@string/btnDhakaDentalInfo"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark"	        	        
+        android:background="#60B40404" />
+            
+    <Button
+        android:id="@+id/btnGovtAyurvedicMedicalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:paddingLeft="20dp"  
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"        
+        android:drawablePadding="28dp"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/btnGovtAyurvedicMedicalInfo"
+        android:drawableRight="@drawable/next"
+        android:textColor="@android:color/primary_text_dark" 	        	        
+        android:background="#60B40404" />
+    
+ 
+</LinearLayout>

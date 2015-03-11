@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">I Care MySelf</string>    
+    <string name="action_settings">Settings</string>
+    
+    <string name="title_activity_home">I Care MySelf</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="drawer_open">Open drawer</string>
+	<string name="drawer_close">Close drawer</string>
+	
+	<string name="add">Add</string>
+	<string name="view">Profile</string>
+	<string name="load">Hello world!</string>
+	<string name="delete">Delete</string>
+	<string name="edit">Edit</string>
+	<string name="back">HOME</string>
+	
+	<string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+	
+	<string name="btnSave">SAVE</string>
+	<string name="btnPhoto">Take Photo</string>	
+	
+	<string name="editName">Name</string>
+	<string name="editDateOfBirth">Birth Date</string>
+	<string name="editGendre">Gender</string>
+    <string name="editHeight">Height</string>
+    <string name="editWeight">Weight</string>
+    <string name="editNote">Note</string>
+    <string name="genderMale">Male</string>
+    <string name="genderFemale">Female</string>    
+	
+	<string name="spinner">Pick needing Blood Group</string>    
+    <string-array name="entries">
+        <item>A+</item>
+        <item>O+</item>
+        <item>B+</item>
+        <item>AB+</item>
+        <item>A-</item>
+        <item>O-</item>
+        <item>B-</item>
+        <item>AB-</item>
+    </string-array>
+    
+    <string name="editBloodGroup">Blood Group</string>
+    
+    <string name="hintDate">01/01/2015</string>
+    <string name="hintTime">20:15</string>
+    <string name="hintName">XYZ</string>
+    <string name="hintHeight">5 feet</string>
+    <string name="hintWeight">5 kg</string>
+    <string name="hintNote">ABCD</string>
+    
+    <string name="viewDiet">Diet Chart</string>
+    <string name="viewVaccin">Vaccination Chart</string>
+    <string name="viewMedicalHistory">Medical History</string>
+    
+    <string name="myfeastName">Event Name</string>
+    <string name="myfeastManu">Feast Manu</string>
+    <string name="dateOfDiet">Date of Diet</string>
+    <string name="timeOfDiet">Time of Diet</string>
+    <string name="alarm">Set Alarm</string>
+    
+    <string name="vaccineName">Vaccine Name</string>
+    <string name="dateOfVaccine">Date of Vaccine</string>
+    <string name="timeOfVaccine">Time of Vaccine</string>
+    
+    <string name="doctorname">Doctor Name</string>
+    <string name="visitdate">Visited Date</string>
+    <string name="perpose">Perpose</string>
+    <string name="prescribtion">Prescribtion</string>
+    
+    <string name="specialization">Specialization</string>
+    <string name="hinedocaddress">mno road pqe</string>
+    <string name="docaddress">Address</string>
+    <string name="doccontact">+8801*********</string>
+    <string name="editDocContact">Contact Number</string>
+    <string name="email">Email</string>
+    <string name="vaccine">Vaccine taken</string>
+    
+    <string name="timeOfAppointment">Appointment Time</string>
+    <string name="dateOfAppointment">Appointment Date</string>
+    
+    <string name="todayDiet">Today Diet Chart</string>
+    <string name="upComingDiet">UpComing Diet Chart</string>
+    
+    <string name="generalinfo">General Info</string>
+    <string name="vaccinationinfo">Vaccination Info</string>
+    <string name="growthinfo">Growth Info</string>
+    <string name="dietnutritioninfo">Diet and Nutrition  Info</string>
+    
+    <string name="btnDhakaMedicalInfo">Dhaka Medical</string>
+    <string name="btnGovtHomiopathyMedicalInfo">Govt Homiopathy Medical</string>
+    <string name="btnDhakaDentalInfo">Dhaka Dental</string>
+    <string name="btnGovtAyurvedicMedicalInfo">Govt Ayurvedic Medical</string>
+    
+    <string name="editDateOfTodo">Date</string>
+    <string name="editWhatToDo">What To Do</string>    
+
+</resources>
+
